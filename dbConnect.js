@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const mongooseuri =
-	"mongodb+srv://pp150549:K2DhuPQtCFvXxVyv@cluster0.yy1qhxs.mongodb.net/?retryWrites=true&w=majority";
+const mongooseuri = process.env.MONGOOSE_URL;
 module.exports = () => {
 	try {
 		mongoose.connect(mongooseuri,
