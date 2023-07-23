@@ -134,9 +134,7 @@ const deleteUserController = async (req, res) => {
 
 const getMyInfo = async (req, res) => {
     try {
-        console.log("req in get my info", req._id)
         const user = await User.findById(req._id);
-        console.log(user);
         res.send(success(200, { user }))
     } catch (e) {
         return res.send(error(500, e.message));

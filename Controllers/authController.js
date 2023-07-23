@@ -41,14 +41,12 @@ const loginController = async (req, res) => {
             // res.status(400).send("Either email or password missing!!");
             return;
         }
-        console.log('before findone')
         const existing_user = await user.findOne({ email }).select('+password');
         if (!existing_user) {
             res.send(error(409, "User doesn't exist!!"))
             // res.status(404).send("User doesn't exists!!")
             return;
         }
-        console.log('after findone')
         const matched = await bcrypt.compare(password, existing_user.password);
         if (!matched) {
             res.send(error(203, "Incorrect email Id or password!!"))

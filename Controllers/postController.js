@@ -7,7 +7,6 @@ const { success, error } = require("../Utils/responseWrapper");
 
 const getAllPosts = async (req, res) => {
     try {
-        console.log(req._id);
         return res.send(success(200, 'These are all posts'))
     } catch (e) {
         console.log(error(500, 'cannot get the posts ', e));
@@ -44,7 +43,6 @@ const likeandunlikePosts = async (req, res) => {
         const { postId } = req.body;
         const curUserId = req._id;
         const post = await Posts.findById(postId).populate('owner');
-        console.log(post);
         if (!post) {
             return res.send(error(404, 'Post Not Found!!'))
         }

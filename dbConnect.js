@@ -5,8 +5,8 @@ module.exports = () => {
 	try {
 		mongoose.connect(mongooseuri,
 			{
-				// useNewUrlParser: true,
-				// useUnifiedTopology: true,
+				useNewUrlParser: true,
+				useUnifiedTopology: true,
 			},
 		).then(console.log("MongoDB Connected"));
 	} catch (error) {
